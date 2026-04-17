@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/fsprojects/fantomas/main/src/Fantomas.Core/schema.json",
   "MaxLineLength": 100,
-  "IndentSize": 2,
+  "IndentSize": 4,
   "EndOfLine": "lf",
   "InsertFinalNewline": true,
   "SpaceBeforeColon": false,

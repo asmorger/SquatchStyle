@@ -48,7 +48,7 @@ Configuration lives in `.fantomasrc` (JSON) and `.editorconfig`.
 
 Key rules:
 - **100 columns** maximum line length. Hard limit, no exceptions.
-- **2 spaces** indentation. Never tabs.
+- **4 spaces** indentation. Never tabs.
 - Fantomas owns all whitespace decisions. Do not fight the formatter.
 - If generated code doesn't format cleanly, the structure is wrong — restructure, don't suppress.
 
