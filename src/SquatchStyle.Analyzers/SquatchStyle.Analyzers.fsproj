@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>SquatchStyle.Analyzers</AssemblyName>
+    <RootNamespace>SquatchStyle.Analyzers</RootNamespace>
+    <IsPackable>true</IsPackable>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <NoWarn>FS0044;NU1608</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Analyzers.SDK" Version="0.36.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Common.fs" />
+    <Compile Include="Analyzers/SilentErrorDiscardAnalyzer.fs" />
+    <Compile Include="Analyzers/FunctionLengthAnalyzer.fs" />
+    <Compile Include="Analyzers/MutableBindingAnalyzer.fs" />
+    <Compile Include="Analyzers/UnguardedRecursionAnalyzer.fs" />
+    <Compile Include="Analyzers/WildcardPatternAnalyzer.fs" />
+    <Compile Include="Analyzers/MissingDocumentationAnalyzer.fs" />
+    <Compile Include="Analyzers/RawExceptionAnalyzer.fs" />
+    <Compile Include="Analyzers/MagicLiteralAnalyzer.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll"
+          Pack="true"
+          PackagePath="analyzers/dotnet/fs"
+          Visible="false" />
+  </ItemGroup>
+
+</Project>

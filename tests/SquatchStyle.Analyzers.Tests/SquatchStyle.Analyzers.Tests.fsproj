@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>SquatchStyle.Analyzers.Tests</RootNamespace>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU1608</NoWarn>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1" />
+    <PackageReference Include="FSharp.Analyzers.SDK.Testing" Version="0.36.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SquatchStyle.Analyzers\SquatchStyle.Analyzers.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Helpers.fs" />
+    <Compile Include="SilentErrorDiscardTests.fs" />
+    <Compile Include="FunctionLengthTests.fs" />
+    <Compile Include="MutableBindingTests.fs" />
+    <Compile Include="UnguardedRecursionTests.fs" />
+    <Compile Include="WildcardPatternTests.fs" />
+    <Compile Include="MissingDocumentationTests.fs" />
+    <Compile Include="RawExceptionTests.fs" />
+    <Compile Include="MagicLiteralTests.fs" />
+  </ItemGroup>
+
+</Project>

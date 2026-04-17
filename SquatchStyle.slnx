@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SquatchStyle.Analyzers/SquatchStyle.Analyzers.fsproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SquatchStyle.Analyzers.Tests/SquatchStyle.Analyzers.Tests.fsproj" />
+  </Folder>
+</Solution>

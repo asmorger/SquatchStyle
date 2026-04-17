@@ -1,0 +1,1 @@
+module SquatchStyle.Analyzers.AssemblyInfo
