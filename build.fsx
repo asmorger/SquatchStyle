@@ -2,7 +2,7 @@
 
 // SquatchStyle F# — FSI build script (no FAKE dependency).
 // Usage: dotnet fsi build.fsx [target]
-// Targets: clean | restore | build | test | format | check-format | pack | all
+// Targets: clean | restore | build | test | format | check-format | pack | push | all
 
 open System
 open System.Diagnostics
@@ -51,6 +51,17 @@ let pack () =
     IO.Directory.CreateDirectory $"{outputDir}/packages" |> ignore
     dotnet $"pack {analyzerProj} -c {configuration} --no-build -o {outputDir}/packages"
 
+let push () =
+    let nupkgs = IO.Directory.GetFiles($"{outputDir}/packages", "*.nupkg")
+    if nupkgs.Length = 0 then
+        failwith "No .nupkg files found in artifacts/packages. Run 'pack' first."
+    let nupkg = nupkgs |> Array.sortDescending |> Array.head
+    printf "NuGet API key: "
+    let apiKey = Console.ReadLine()
+    if String.IsNullOrWhiteSpace apiKey then
+        failwith "API key cannot be empty."
+    dotnet $"nuget push {nupkg} -k {apiKey} -s https://api.nuget.org/v3/index.json"
+
 let all () =
     restore ()
     build ()
@@ -72,7 +83,8 @@ match target with
 | "format" -> format ()
 | "check-format" -> checkFormat ()
 | "pack" -> pack ()
+| "push" -> push ()
 | "all" -> all ()
-| other -> failwithf "Unknown target '%s'. Valid: clean | restore | build | test | format | check-format | pack | all" other
+| other -> failwithf "Unknown target '%s'. Valid: clean | restore | build | test | format | check-format | pack | push | all" other
 
 printfn "=== Done ==="
