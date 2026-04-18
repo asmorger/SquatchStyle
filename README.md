@@ -29,12 +29,12 @@ Add the analyzer to your `.fsproj`:
 <ItemGroup>
   <PackageReference Include="SquatchStyle.Analyzers" Version="*">
     <PrivateAssets>all</PrivateAssets>
-    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    <IncludeAssets>analyzers</IncludeAssets>
   </PackageReference>
 </ItemGroup>
 ```
 
-The analyzer runs automatically during `dotnet build`.
+You will need to configure the analyzers to run as needed on your project.  Since these aren't native to the F# community (unlike Roslyn analyzers), you'll need some setup in your project.  [Instructions can be found here](https://ionide.io/FSharp.Analyzers.SDK/)
 
 ## CI Escalation
 

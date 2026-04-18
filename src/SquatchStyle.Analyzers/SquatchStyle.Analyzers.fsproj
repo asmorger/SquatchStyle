@@ -1,20 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>SquatchStyle.Analyzers</AssemblyName>
     <RootNamespace>SquatchStyle.Analyzers</RootNamespace>
     <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <NoWarn>FS0044;NU1608</NoWarn>
+    <NoWarn>FS0044;NU1608;NU5128</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Nullable>enable</Nullable>
-    <LangVersion>preview</LangVersion>
+    <Authors>Andrew Morger</Authors>
+    <Description>Tiger Style, but for F#</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>F#;analyzers;compiler;tooling;editor;</PackageTags>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FSharp.Analyzers.SDK" Version="0.36.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
