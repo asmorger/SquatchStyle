@@ -15,10 +15,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>F#;analyzers;compiler;tooling;editor;</PackageTags>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FSharp.Analyzers.SDK" Version="0.36.0" />
+    <PackageReference Update="FSharp.Core" Version="10.0.106" />
   </ItemGroup>
 
   <ItemGroup>
